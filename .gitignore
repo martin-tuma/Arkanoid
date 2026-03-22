@@ -1,0 +1,34 @@
+# Visual Studio
+.vs/
+*.ncb
+*.sdf
+*.suo
+*.v12.suo
+*.user
+*.old
+ipch/
+UpgradeLog.XML
+_UpgradeReport_Files/
+
+# Build výstupy
+Debug/
+Release/
+Arkanoid/Debug/
+Arkanoid/Release/
+
+# NuGet
+packages/
+nuget.exe
+
+# DLL knihovny (stažené přes NuGet)
+*.dll
+
+# Skripty pro export dokumentace
+export_doc.py
+export_md.py
+
+# Photoshop soubory
+*.psd
+
+# Claude Code
+.claude/
