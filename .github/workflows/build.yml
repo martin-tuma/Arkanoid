@@ -25,3 +25,16 @@ jobs:
 
       - name: Build
         run: msbuild Arkanoid.sln /p:Configuration=Debug /p:Platform=Win32 /p:PlatformToolset=v143
+
+      - name: Kopírování assetů do výstupní složky
+        run: xcopy /E /I /Y Arkanoid\images Debug\images
+
+      - name: Upload artefaktu
+        uses: actions/upload-artifact@v4
+        with:
+          name: Arkanoid-Debug
+          path: |
+            Debug\Arkanoid.exe
+            Debug\SDL2.dll
+            Debug\SDL2_image.dll
+            Debug\images\
