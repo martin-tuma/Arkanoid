@@ -37,4 +37,5 @@ jobs:
             Debug\Arkanoid.exe
             Debug\SDL2.dll
             Debug\SDL2_image.dll
+            Debug\SDL2_ttf.dll
             Debug\images\
