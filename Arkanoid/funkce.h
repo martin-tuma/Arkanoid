@@ -29,10 +29,13 @@ struct palka {
 
 struct cihla {
 	int x,y;
-	bool active;
+	int hits;            // zbývající počet zásahů (0 = zničená)
+	int max_hits;        // maximální počet zásahů (pro výpočet barvy)
+	bool indestructible; // nezničitelná cihla (tmavě šedá)
 
 	cihla();
-	cihla(int x, int y);
+	cihla(int x, int y, int hits, bool indestructible = false);
+	bool active() const { return indestructible || hits > 0; }
 };
 
 struct kulicka {

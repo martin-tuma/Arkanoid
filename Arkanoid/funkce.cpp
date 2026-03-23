@@ -61,12 +61,14 @@ void palka::minus_x() {
 }
 
 
-cihla::cihla() : x(0), y(0), active(false) {}
+cihla::cihla() : x(0), y(0), hits(0), max_hits(1), indestructible(false) {}
 
-cihla::cihla(int x, int y) {
-	this->x = x;
-	this->y = y;
-	this->active = true;
+cihla::cihla(int x, int y, int hits, bool indestr) {
+	this->x             = x;
+	this->y             = y;
+	this->indestructible = indestr;
+	this->hits          = indestr ? 0 : hits;
+	this->max_hits      = indestr ? 0 : hits;
 }
 
 
