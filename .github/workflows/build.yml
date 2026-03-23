@@ -24,16 +24,16 @@ jobs:
         run: nuget restore Arkanoid.sln
 
       - name: Build
-        run: msbuild Arkanoid.sln /p:Configuration=Debug /p:Platform=Win32 /p:PlatformToolset=v143
+        run: msbuild Arkanoid.sln /p:Configuration=Release /p:Platform=Win32 /p:PlatformToolset=v143
 
       - name: Kopírování assetů do výstupní složky
-        run: xcopy /E /I /Y Arkanoid\images Debug\images
+        run: xcopy /E /I /Y Arkanoid\images Release\images
 
       - name: Upload artefaktu
         uses: actions/upload-artifact@v4
         with:
-          name: Arkanoid-Debug
+          name: Arkanoid-Release
           path: |
-            Debug\Arkanoid.exe
-            Debug\*.dll
-            Debug\images\
+            Release\Arkanoid.exe
+            Release\*.dll
+            Release\images\
