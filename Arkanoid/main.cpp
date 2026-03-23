@@ -606,6 +606,8 @@ int main(int argc, char *argv[])
 
   while (done == 0)
   {
+    Uint32 frame_start = SDL_GetTicks();
+
     SDL_Event event;
     while (SDL_PollEvent(&event))
     {
@@ -719,6 +721,11 @@ int main(int argc, char *argv[])
       case STAV_GAME_OVER: DrawGameOver(); break;
       case STAV_VYSLEDKY:  DrawVysledky(); break;
     }
+
+    // Frame cap ~60 FPS (záloha když VSync nefunguje)
+    Uint32 frame_time = SDL_GetTicks() - frame_start;
+    if (frame_time < 16)
+      SDL_Delay(16 - frame_time);
   }
 
   TTF_CloseFont(font_velky);
